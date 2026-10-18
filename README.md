@@ -23,9 +23,7 @@ An interactive sales analytics dashboard built with Python, Streamlit, Pandas, a
 
 ## Live demo
 
-Replace the placeholder below with your deployed Streamlit URL:
-
-**[Open the Sales Analytics Dashboard](https://sales-analytics-dashboard9.streamlit.app/)**
+**[Open the live Sales Analytics Dashboard](https://sales-analytics-dashboard9.streamlit.app/)**
 
 ## Run locally
 
