@@ -9,7 +9,7 @@ REQUIRED_COLUMNS = {"date", "product", "category", "region", "quantity", "unit_p
 def prepare_data(df: pd.DataFrame) -> pd.DataFrame:
     """Validate sales columns, clean invalid rows, and calculate revenue/month."""
     df = df.copy()
-    normalized = [re.sub(r"\\s+", "_", str(column).strip().lower()) for column in df.columns]
+    normalized = [re.sub(r"\s+", "_", str(column).strip().lower()) for column in df.columns]
     if len(normalized) != len(set(normalized)):
         raise ValueError("Duplicate column names found after normalization.")
     df.columns = normalized
