@@ -1,0 +1,37 @@
+date,product,category,region,quantity,unit_price
+2026-01-04,Wireless Mouse,Accessories,North,12,18.50
+2026-01-07,Mechanical Keyboard,Accessories,West,7,64.00
+2026-01-12,USB-C Hub,Accessories,South,10,32.00
+2026-01-19,27-inch Monitor,Displays,East,4,219.00
+2026-02-02,Wireless Mouse,Accessories,East,15,18.50
+2026-02-05,Laptop Stand,Accessories,North,9,29.00
+2026-02-11,27-inch Monitor,Displays,West,5,219.00
+2026-02-20,Webcam,Peripherals,South,8,49.00
+2026-03-03,Mechanical Keyboard,Accessories,North,6,64.00
+2026-03-09,Webcam,Peripherals,West,11,49.00
+2026-03-16,USB-C Hub,Accessories,East,14,32.00
+2026-03-21,27-inch Monitor,Displays,South,3,219.00
+2026-04-01,Laptop Stand,Accessories,East,13,29.00
+2026-04-08,Wireless Mouse,Accessories,South,18,18.50
+2026-04-14,Webcam,Peripherals,North,9,49.00
+2026-04-25,27-inch Monitor,Displays,West,6,219.00
+2026-05-02,Mechanical Keyboard,Accessories,South,8,64.00
+2026-05-10,USB-C Hub,Accessories,North,17,32.00
+2026-05-17,Webcam,Peripherals,East,12,49.00
+2026-05-26,Laptop Stand,Accessories,West,10,29.00
+2026-06-03,27-inch Monitor,Displays,North,5,219.00
+2026-06-09,Wireless Mouse,Accessories,West,21,18.50
+2026-06-18,Mechanical Keyboard,Accessories,East,9,64.00
+2026-06-24,Webcam,Peripherals,South,10,49.00
+2026-07-05,USB-C Hub,Accessories,West,16,32.00
+2026-07-12,Laptop Stand,Accessories,South,14,29.00
+2026-07-18,27-inch Monitor,Displays,East,7,219.00
+2026-07-27,Wireless Mouse,Accessories,North,19,18.50
+2026-08-02,Webcam,Peripherals,West,13,49.00
+2026-08-11,Mechanical Keyboard,Accessories,South,10,64.00
+2026-08-19,USB-C Hub,Accessories,East,20,32.00
+2026-08-28,27-inch Monitor,Displays,South,4,219.00
+2026-09-03,Laptop Stand,Accessories,North,16,29.00
+2026-09-09,Wireless Mouse,Accessories,East,23,18.50
+2026-09-15,Webcam,Peripherals,North,15,49.00
+2026-09-25,Mechanical Keyboard,Accessories,West,11,64.00
