@@ -16,6 +16,7 @@ def load_sample_data():
 
 def prepare_data(df: pd.DataFrame) -> pd.DataFrame:
     df = df.copy()
+    # Normalize headers so "Unit Price", "unit price", and "unit_price" match.
     df.columns = [str(c).strip().lower().replace(" ", "_") for c in df.columns]
     missing = REQUIRED_COLUMNS - set(df.columns)
     if missing:
@@ -24,6 +25,11 @@ def prepare_data(df: pd.DataFrame) -> pd.DataFrame:
     for col in ["quantity", "unit_price"]:
         df[col] = pd.to_numeric(df[col], errors="coerce")
     df = df.dropna(subset=["date", "product", "category", "region", "quantity", "unit_price"])
+    # Prevent blank text fields from appearing as valid products/categories/regions.
+    for col in ["product", "category", "region"]:
+        df[col] = df[col].astype(str).str.strip()
+        df = df[df[col] != ""]
+    # Negative quantity/price values are not accepted in this demo dataset.
     df = df[(df["quantity"] >= 0) & (df["unit_price"] >= 0)]
     df["revenue"] = df["quantity"] * df["unit_price"]
     df["month"] = df["date"].dt.to_period("M").astype(str)
@@ -75,13 +81,13 @@ if filtered.empty:
 total_revenue = filtered["revenue"].sum()
 total_units = filtered["quantity"].sum()
 orders = len(filtered)
-avg_order_value = total_revenue / orders if orders else 0
+avg_record_value = total_revenue / orders if orders else 0
 
 m1, m2, m3, m4 = st.columns(4)
 m1.metric("Total Revenue", f"${total_revenue:,.2f}")
 m2.metric("Units Sold", f"{total_units:,.0f}")
 m3.metric("Sales Records", f"{orders:,}")
-m4.metric("Avg. Record Value", f"${avg_order_value:,.2f}")
+m4.metric("Avg. Record Value", f"${avg_record_value:,.2f}")
 
 st.divider()
 left, right = st.columns(2)
