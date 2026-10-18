@@ -3,9 +3,10 @@ import pandas as pd
 import plotly.express as px
 import streamlit as st
 
+from data_utils import prepare_data
+
 st.set_page_config(page_title="Sales Analytics Dashboard", page_icon="📊", layout="wide")
 
-REQUIRED_COLUMNS = {"date", "product", "category", "region", "quantity", "unit_price"}
 
 st.title("📊 Sales Analytics Dashboard")
 st.caption("Explore revenue, product performance, regional trends, and downloadable reports.")
@@ -13,27 +14,6 @@ st.caption("Explore revenue, product performance, regional trends, and downloada
 @st.cache_data
 def load_sample_data():
     return pd.read_csv(Path(__file__).parent / "sample_sales.csv", parse_dates=["date"])
-
-def prepare_data(df: pd.DataFrame) -> pd.DataFrame:
-    df = df.copy()
-    # Normalize headers so "Unit Price", "unit price", and "unit_price" match.
-    df.columns = [str(c).strip().lower().replace(" ", "_") for c in df.columns]
-    missing = REQUIRED_COLUMNS - set(df.columns)
-    if missing:
-        raise ValueError("Missing required columns: " + ", ".join(sorted(missing)))
-    df["date"] = pd.to_datetime(df["date"], errors="coerce")
-    for col in ["quantity", "unit_price"]:
-        df[col] = pd.to_numeric(df[col], errors="coerce")
-    df = df.dropna(subset=["date", "product", "category", "region", "quantity", "unit_price"])
-    # Prevent blank text fields from appearing as valid products/categories/regions.
-    for col in ["product", "category", "region"]:
-        df[col] = df[col].astype(str).str.strip()
-        df = df[df[col] != ""]
-    # Negative quantity/price values are not accepted in this demo dataset.
-    df = df[(df["quantity"] >= 0) & (df["unit_price"] >= 0)]
-    df["revenue"] = df["quantity"] * df["unit_price"]
-    df["month"] = df["date"].dt.to_period("M").astype(str)
-    return df
 
 with st.sidebar:
     st.header("Data source")
