@@ -46,7 +46,7 @@ Streamlit will print a local URL, usually `http://localhost:8501`.
 
 ## Run tests
 
-Run the data-preparation tests from the project root:
+The data preparation logic is isolated in `data_utils.py`, so tests do not need to start the Streamlit interface. Run from the project root:
 
 ```bash
 python -m unittest -v
