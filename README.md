@@ -1,13 +1,13 @@
 # Sales Analytics Dashboard
 
-A portfolio-ready sales dashboard built with Python, Streamlit, Pandas, and Plotly.
+An interactive sales analytics dashboard built with Python, Streamlit, Pandas, and Plotly. Upload a sales CSV to explore revenue trends and compare product categories and regions.
 
 ## Features
 
-- Upload a sales CSV or explore included sample data
+- Upload a sales CSV or explore the included fictional sample dataset
 - Validate required columns and clean invalid rows
 - Filter by date range, region, and category
-- KPI cards for revenue, units sold, record count, and average record value
+- KPI cards for total revenue, units sold, sales-record count, and average record value
 - Monthly revenue trend
 - Revenue by category and region
 - Top 10 products by revenue
@@ -19,6 +19,13 @@ A portfolio-ready sales dashboard built with Python, Streamlit, Pandas, and Plot
 - Streamlit
 - Pandas
 - Plotly
+- unittest for data-preparation tests
+
+## Live demo
+
+Replace the placeholder below with your deployed Streamlit URL:
+
+**[Open the Sales Analytics Dashboard](https://sales-analytics-dashboard9.streamlit.app/)**
 
 ## Run locally
 
@@ -37,6 +44,14 @@ A portfolio-ready sales dashboard built with Python, Streamlit, Pandas, and Plot
 
 Streamlit will print a local URL, usually `http://localhost:8501`.
 
+## Run tests
+
+Run the data-preparation tests from the project root:
+
+```bash
+python -m unittest -v
+```
+
 ## CSV format
 
 The uploaded CSV must include these columns:
@@ -50,31 +65,25 @@ The uploaded CSV must include these columns:
 | `quantity` | Units sold | `12` |
 | `unit_price` | Price per unit | `18.50` |
 
-Column names are case-insensitive and spaces are converted to underscores.
+Column names are lowercased and spaces are converted to underscores.
 
 ## Example use case
 
-A small retailer exports monthly sales from a spreadsheet and wants to quickly see which products, categories, and regions drive revenue. This dashboard lets them upload the CSV, filter results, and export a report without manually creating charts.
+A small retailer exports sales from a spreadsheet and wants to see which products, categories, and regions drive revenue. The dashboard lets them upload the CSV, filter results, and export the filtered data without manually creating charts.
 
 ## Screenshots
 
-Run the app and capture:
-- Full dashboard with KPI cards
-- Monthly trend and category chart
-- Filtered table with the CSV download control
-
-Add screenshots to a `screenshots/` folder before sharing the repository with clients.
+Add screenshots from the live dashboard to a `screenshots/` folder and embed them here. Suggested screenshots: KPI cards, trend/category charts, and filtered table.
 
 ## Limitations
 
 - Revenue is calculated as `quantity × unit_price`; costs, profit, refunds, and tax are not modeled.
 - Sample data is fictional and for demonstration only.
-- The app does not save uploaded data to a database.
-- Validate business definitions with a client before using real financial data.
+- Uploaded data is not stored in a database.
+- Confirm business definitions before using the dashboard with real financial data.
 
-## Next improvements
+## Possible improvements
 
-- Add unit tests for data validation and revenue calculations
 - Add profit and discount fields
 - Add PDF report export
-- Deploy a demo on Streamlit Community Cloud
+- Add more data-quality summaries and tests
